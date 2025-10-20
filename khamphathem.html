@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Khám phá môi trường xanh</title>
+
+<style>
+  body {
+    font-family: "Segoe UI", sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom, #e8f5e9, #c8e6c9);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+  }
+
+  h1 {
+    text-align: center;
+    margin-top: 30px;
+    color: #2e7d32;
+  }
+
+  .menu {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    max-width: 400px;
+    margin-top: 30px;
+  }
+
+  .menu button {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 18px;
+    margin: 10px 0;
+    font-size: 18px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .menu button:hover {
+    background-color: #388e3c;
+    transform: translateY(-2px);
+  }
+
+  iframe {
+    width: 100%;
+    height: 500px;
+    border: none;
+    margin-top: 20px;
+    border-radius: 12px;
+  }
+
+  @media (max-width: 600px) {
+    .menu button {
+      font-size: 16px;
+      padding: 14px;
+    }
+    iframe {
+      height: 300px;
+    }
+  }
+</style>
+</head>
+
+<body>
+  <h1>🌳 KHÁM PHÁ 🌳<br> MÔI TRƯỜNG XANH </h1>
+
+  <div class="menu">
+    <button onclick="showSection('map')">🗺️ Bản đồ tương tác (Map)</button>
+    <button onclick="showSection('gallery')">🌿 Thư viện cây xanh</button>
+    <button onclick="showSection('game')">🎮 Trải nghiệm giáo dục - Trò chơi</button>
+    <button onclick="showSection('stats')">📊 Biểu đồ thống kê</button>
+    <button onclick="showSection('photo360')">📷 Bản đồ gắn ảnh 360°</button>
+  </div>
+
+  <div id="content"></div>
+
+  <script>
+    function showSection(section) {
+      const content = document.getElementById("content");
+      if (section === "map") {
+        content.innerHTML = `
+          <iframe src="https://www.google.com/maps/d/embed?mid=1JDE1krvuqCNtK6X-HpxUG_Jv13rTuiw&ehbc=2E312F"></iframe>`;
+      } else if (section === "gallery") {
+        content.innerHTML = `<h2>🌿 Thư viện cây xanh</h2><p>Đang cập nhật hình ảnh và thông tin về các loại cây trong khu vực...</p>`;
+      } else if (section === "game") {
+        content.innerHTML = `<h2>🎮 Trò chơi giáo dục</h2><p>Trải nghiệm mini game vui học về môi trường (sẽ sớm ra mắt).</p>`;
+      } else if (section === "stats") {
+        content.innerHTML = `<h2>📊 Thống kê</h2><p>Hiển thị dữ liệu thu thập từ bản đồ và người dùng trong tương lai.</p>`;
+      } else if (section === "photo360") {
+        content.innerHTML = `
+          <h2>📷 Bản đồ ảnh 360°</h2>
+          <iframe src="https://kuula.co/share/collection/7YZQH?fs=1&vr=1&zoom=1&sd=1&thumbs=1&info=1" allowfullscreen></iframe>
+          <p>Khám phá không gian xanh dưới góc nhìn 360°.</p>`;
+      }
+    }
+  </script>
+</body>
+</html>
